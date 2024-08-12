@@ -1,0 +1,44 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class HelloWorld {
+    public static void main(String[] args) {
+        // Initialize an array with sorted integer values
+        int arr[] = {-18, -12, -4, 0, 2, 3, 4, 15, 16, 18, 22, 45, 89};
+        
+        // Define the target value to search for in the array
+        int target = 2;
+        
+        // Call the search function and print the result
+        System.out.println(search(arr, target));
+    }
+    
+    // Function to perform binary search on the array
+    public static int search(int arr[], int target) {
+        // Define the starting and ending indices of the search range
+        int start = 0;
+        int end = arr.length - 1;
+
+        // Loop until the search range is valid
+        while (start <= end) {
+            // Calculate the mid-point of the current search range
+            int mid = start + (end - start) / 2;
+            
+            // If the target is greater than the mid value, adjust the start index
+            if (arr[mid] < target) {
+                start = mid + 1;
+            }
+            // If the target is less than the mid value, adjust the end index
+            else if (arr[mid] > target) {
+                end = mid - 1;
+            }
+            // If the target is equal to the mid value, return the mid index
+            else {
+                return mid;
+            }
+        }
+        
+        // Return -1 if the target is not found in the array
+        return -1;
+    }
+}
