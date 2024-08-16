@@ -1,0 +1,27 @@
+package binarySearchPractice;
+//find ceiling number ie.14 ans : 16
+//means greater than and equal to given number
+public class FindCeilingNumber {
+    public static void main(String[] args) {
+        int arr[]={2,3,5,9,14,16,18};
+        int target=15;
+        System.out.println(findCeilingNum(arr,target));
+
+    }
+  static int  findCeilingNum(int arr[],int target){
+        int start=0;
+        int end=arr.length-1;
+        while (start<=end){
+            int mid=start+(end-start)/2;
+            if (arr[mid]<target){
+                start=mid+1;
+            }else if (arr[mid]>target){
+                end=mid-1;
+            }
+            else {
+                return arr[mid];
+            }
+        }
+        return arr[start];
+    }
+}
